@@ -7,22 +7,22 @@ use App\Models\Job;
 
 
 Route::get('/', function () {
-   
+
     return view('home');
 });
 
-Route::get('/jobs', function ()  {
-  
+Route::get('/jobs', function () {
+    $jobs = Job::with('employer')->simplePaginate(10);
     return view('jobs', [
-        'jobs' => Job ::all()
+        'jobs' => $jobs
     ]);
 });
 
-Route::get('/jobs/{id}', function ($id)  {
- 
+Route::get('/jobs/{id}', function ($id) {
+
 
     // Find the job by ID
-    
+
     $job = Job::find($id);
     // Debug the result
     //dd($job);
