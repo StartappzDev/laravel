@@ -34,8 +34,14 @@
                                 <span class="flex select-none items-center pl-3 text-gray-500 sm:text-sm"></span>
                                 <input type="text" name="title" id="title" autocomplete="title"
                                     class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                                    placeholder="Engineer">
+                                    placeholder="Engineer" required>
                             </div>
+                        </div>
+                        <div>
+                            @error('title')
+                                <p class="text-xs text-red-500 font-semibold mt-1">{{ $message }}
+                                </p>
+                            @enderror
                         </div>
                     </div>
                     <div class="sm:col-span-4">
@@ -46,8 +52,15 @@
                                 <span class="flex select-none items-center pl-3 text-gray-500 sm:text-sm"></span>
                                 <input type="text" name="salary" id="salary" autocomplete="salary"
                                     class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                                    placeholder="$10000">
+                                    placeholder="$10000" required>
                             </div>
+
+                        </div>
+                        <div>
+                            @error('salary')
+                                <p class="text-xs text-red-500 font-semibold mt-1">{{ $message }}
+                                </p>
+                            @enderror
                         </div>
                     </div>
 
@@ -55,7 +68,20 @@
 
 
 
+
+
                 </div>
+                {{-- <div>
+                    @if ($errors->any())
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li class="text-xs text-red-600">{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
+
+                </div> --}}
+
             </div>
 
 
